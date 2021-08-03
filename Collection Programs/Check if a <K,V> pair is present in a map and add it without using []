@@ -1,0 +1,8 @@
+void main(){
+  Map A=new Map();
+  if(A.isEmpty)
+  {
+    A['Fisrt']='Hi';
+  }
+  print(A);
+}
