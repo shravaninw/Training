@@ -1,150 +1,137 @@
 import 'package:flutter/material.dart';
-import 'package:karawan/RegisterPage.dart';
+import 'package:karawan/login_page.dart';
 
 void main() {
-  runApp(AppL());
-}
-class AppL extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(home: LoginPage(),);
-  }
-}
-class Login extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.fromLTRB(40,40,10,60),
-      child: Text('Login',
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 30)),
-    );
-  }
+  runApp(App());
 }
 
-class Email extends StatelessWidget {
+class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(60,30, 60, 10),
-      child: TextField(
-
-        decoration: InputDecoration(
-
-          filled: true,
-          fillColor: Colors.black,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-            hintText: 'Email Address',
-            prefixIcon: Icon(Icons.email,color: Colors.white,),
-        hintStyle: TextStyle(color: Colors.white , fontSize: 20)),
-
+      padding: const EdgeInsets.fromLTRB(0, 60, 0, 90),
+      child: const Text(
+        'Karawan',
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontWeight: FontWeight.bold, fontSize: 30, color: Colors.white),
       ),
     );
   }
 }
 
-class Password extends StatelessWidget {
+class TextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(60,10,60,30),
-      child: TextField(
-
-        obscureText: true,
-        decoration: InputDecoration(
-            filled: true,
-            fillColor: Colors.black,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-          hintText: 'Enter Password',
-          prefixIcon: Icon(Icons.lock,color: Colors.white,),
-          hintStyle: TextStyle(color: Colors.white , fontSize: 20)
+      padding: const EdgeInsets.fromLTRB(70, 90, 70, 40),
+      child: Center(
+        child: Text(
+          'From idea to project plan. We\'ll work to research, define and validate your product.',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
     );
   }
 }
 
-class LoginNow extends StatelessWidget {
+class DotIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50,
-        padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.blue,
-              padding: EdgeInsets.symmetric(horizontal: 80,vertical: 10),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(80))),
-          child: Text("Login Now", style: TextStyle(color: Colors.white , fontSize: 15)),
-          onPressed: () {
-            print("logged");
-          },
-        ));
-  }
-}
-
-class ForgetPassword extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: TextButton(
-        style: TextButton.styleFrom(
-          textStyle: TextStyle(
-            fontSize: 15,
-            decoration: TextDecoration.underline,
-            color: Colors.white
+      padding: const EdgeInsets.fromLTRB(180, 20, 180, 50),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Icon(
+            Icons.circle,
+            color: Colors.white,
+            size: 10,
           ),
-        ),
-        onPressed: () {
-          print("Forgot password");
-//forgot password screen
-        },
-        child: Text('Forgot Password'),
+          Icon(
+            Icons.circle,
+            color: Colors.grey,
+            size: 10,
+          ),
+          Icon(
+            Icons.circle,
+            color: Colors.grey,
+            size: 10,
+          ),
+        ],
       ),
     );
   }
 }
 
-class Register extends StatelessWidget {
+class ContinueWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.fromLTRB(40,1,40 ,50),
-      child: TextButton(
-        style: TextButton.styleFrom(
-            textStyle: TextStyle(
-          fontSize: 15,
-          decoration: TextDecoration.underline,
-              color: Colors.white,
-        )),
+    return Container(
+        child: ButtonTheme(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 80, vertical: 10),
+            primary: Colors.blue,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(80))),
+        child: Text(
+          "Continue",
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
         onPressed: () {
-          Navigator.push<Widget>(
-              context, MaterialPageRoute(builder: (context) => RegisterPage()));
+          Navigator.push<Widget>(context,
+              MaterialPageRoute<Widget>(builder: (context) => LoginPage()));
         },
-        child: Text('Register'),
       ),
-    );
+    ));
   }
 }
 
-class LoginPage extends StatelessWidget {
+class App extends StatelessWidget {
   @override
-  LoginPage({Key? key}) : super(key: key);
-
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Login Page',
+      home: MyApp(),
+    );
+  }
+}
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your applica
+  // tion.
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+//final PageController controller=PageController(initialPage: 0);
+
+    return MaterialApp(
+        title: 'Karawan',
         home: Scaffold(
-            body: (Container(
-          height: (MediaQuery.of(context).size.height),
-          width: (MediaQuery.of(context).size.width),
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('images/pic.jpg'), fit: BoxFit.cover),
-          ),
-          child: Center(
+          body: Container(
+            height: (MediaQuery.of(context).size.height),
+            width: (MediaQuery.of(context).size.width),
+            constraints: BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/pic.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Center(
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Login(),Email(), Password(), LoginNow(),ForgetPassword(), Register()])),
-        ))));
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TitleWidget(),
+                  TextWidget(),
+                  DotIndicator(),
+                  ContinueWidget(),
+                ],
+              ),
+            ),
+          ),
+        ));
   }
 }
