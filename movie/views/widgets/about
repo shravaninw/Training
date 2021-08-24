@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+
+class AboutSection extends StatelessWidget {
+  const AboutSection(
+      {Key? key,
+      required this.title,
+      required this.status,
+      required this.runtime,
+      required this.type,
+      required this.premiere,
+      required this.budget,
+      required this.revenue,
+      required this.homepage,
+      required this.imdb})
+      : super(key: key);
+
+  final String title;
+  final String status;
+  final String runtime;
+  final String type;
+  final String premiere;
+  final String budget;
+  final String revenue;
+  final String homepage;
+  final String imdb;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //height: 400,
+      padding: EdgeInsets.fromLTRB(8, 8, 0, 0),
+      child: Row(children: [
+
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'About',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              Text('Original Title:',style: TextStyle(color: Colors.white),),
+              Text('Status:',style: TextStyle(color: Colors.white),),
+              Text('Runtime:',style: TextStyle(color: Colors.white),),
+              Text('Type:',style: TextStyle(color: Colors.white),),
+              Text('Premiere:',style: TextStyle(color: Colors.white),),
+              Text('Budget:',style: TextStyle(color: Colors.white),),
+              Text('Revenue:',style: TextStyle(color: Colors.white),),
+              Text('HomePage:',style: TextStyle(color: Colors.white),),
+              Text('Imdb:',style: TextStyle(color: Colors.white),),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: DefaultTextStyle(
+            style: DefaultTextStyle.of(context).style.copyWith(
+              color: Colors.white,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(''),
+                Text('$title',),
+                Text('$status'),
+                Text('$runtime'),
+                Text('$type'),
+                Text('$premiere'),
+                Text('$budget'),
+                Text('$revenue'),
+                Text('$homepage'),
+                Text('$imdb'),
+              ],
+            ),
+          ),
+        )
+      ]),
+    );
+  }
+}
